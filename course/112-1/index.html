@@ -70,10 +70,12 @@
                             學期成績：<br>
                             <br>
                             上課內容：<br>
-                            &emsp;&emsp;這門課主要探討UNIX系統上程式的運作、kernel與程式之間的互動，以及作業系統在資源分配方面的角色。初期內容聚焦在UNIX系統上檔案讀寫(File
+                            &emsp;&emsp;這門課主要探討UNIX系統上程式的運作、kernel與程式之間的互動，以及作業系統在資源分配方面的角色。舉例來說，期初內容聚焦在UNIX系統上檔案讀寫(File
                             I/O)的機制，例如<code>write()</code>這個system call的執行流程，從file descriptor table、open file
                             table、i-node table一直到kernel buffer cache，最終檢查緩衝區快取(buffer cache)是否存放所需資料，若無則可能進入event
-                            queue等待磁碟讀寫(disk I/O)的機會。課程主要內容包括檔案讀寫(file I/O)、檔案系統(files and
+                            queue等待磁碟讀寫(disk
+                            I/O)的機會。在這個例子中，我們會學到系統維護了什麼資料結構，kernel又會在什麼時候接管CPU等等。而後面的授課內容則會詳細的討論以下幾個章節：檔案讀寫(file
+                            I/O)、檔案系統(files and
                             directories)、行程間通訊(inter-process communication)、行程控制(process control)、訊號(signal)以及執行緒(thread
                             model)。在課堂中，特別強調程式設計師需要充分考慮的議題，如race condition和死結(deadlock)等。<br>
 
