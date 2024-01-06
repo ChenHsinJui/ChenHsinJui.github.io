@@ -87,18 +87,19 @@
                                 <li>第一次作業：學習了file lock、I/O multiplexing的重要性，並且認識到在socket
                                     I/O中可能會出現封包切割的問題--儘管這個問題不該出現在SP這門課中--然而，我認為作為一個未來的程式設計師，尤其是系統相關的問題，這樣的問題更應該被程式設計師注意到。
                                 </li>
-                                <li>第二次作業：練習了<code>fork()</code>和<code>exec()</code>相關函式的實作，並學會了兩種常見的行程間溝通（IPC）技巧，如<code>pipe(),fifo</code>等，以解決race
+                                <li>第二次作業：練習了<code>fork()</code>和<code>exec()</code>相關函式的實作，並學會了兩種常見的行程間溝通（IPC）技巧，如<code>pipe()</code>、<code>fifo</code>等，以解決race
                                     condition相關的問題。</li>
                                 <li>第三次作業：探討了與訊號(signal)和nonlocal jump相關的<code>syscall</code>，特別需要注意避免deadlock相關的問題。
                                 </li>
                                 <li>第四次作業：練習了multi-threading(pthread, POSIX-thread)相關的user-level
                                     thread操作，進一步豐富了多執行緒操作的經驗。</li>
                             </ul>
-                            雖然在作業中相對較少涉及檔案系統相關的問題，但期中考中對檔案系統(file
-                            system)、檔案與目錄權限等方面的題目更為重要。整個學期的內容呈現了相互關聯性，特別是在深入探討<code>exec()、fork()</code>等<code>syscall</code>與set-UID
+                            &emsp;&emsp;雖然在作業中相對較少涉及檔案系統相關的問題，但期中考中對檔案系統(file
+                            system)、檔案與目錄權限等方面的題目更為重要。整個學期的內容呈現了相互關聯性，特別是在深入探討<code>exec()</code>、<code>fork()</code>等<code>syscall</code>與set-UID
                             bit的關係後，前後各章節的內容相互呼應。<br>
                             &emsp;&emsp;課程中最大的收穫來自於作業，至少熟悉了各種<code>syscall</code>的使用。同時，學到了一項實用的技能，即在使用不熟悉的函式或<code>syscall</code>時先查閱相關的說明網頁(manual
-                            page)，這為解決問題提供了清晰且全面的指引。這樣的學習過程不僅培養了對系統程式的深入理解，也培養了查找資源並解決問題的獨立能力。
+                            page)，這給出了這些函式的使用方法清晰且全面的指引。這樣的學習過程不僅培養了對系統程式的深入理解，也培養了查找資源並解決問題的獨立能力。<br>
+                            註：原本盡力不要寫晶晶體的我，寫這段的時候放棄掙扎了，我根本不知道I/O multiplexing的中文QWQ。
                         </font>
                     </blockquote>
                 </div>
@@ -114,7 +115,25 @@
                             學期成績：<br>
                             <br>
                             上課內容：<br>
-                            &emsp;&emsp;
+                            &emsp;&emsp;這門課的課程內容皆在於建立電腦科學中對於「演算法」形式定義以及時間複雜度等等的定義。我們會考慮一些自動機並且找到可被這些自動機所辨識的語言，其中此處說的語言並不是指人類的自然語言，而是指一些字串所形成的集合，有時會被稱做形式語言。學期的前三分之二大概會探討的自動機有：
+                            <ol>
+                                <li>確定有限狀態自動機(deterministic finite automata, DFA)，可被此自動機辨識的語言為正規語言(regular
+                                    language)，此種自動機類似數位電路設計相關課程會提及的有限狀態自動機(finite state
+                                    machine)。這種自動機沒有任何的記憶功能，即不會有額外紀錄資訊的空間。</li>
+                                <li>非確定有限狀態自動機(nondeterministic finite automata,
+                                    NFA)，對於同一個符號(字元)可以有多種轉移的可能未定義，此種自動機與DFA等價。</li>
+                                <li>下推自動機(pushdown automata,
+                                    PDA)，類似NFA是一種非確定性自動機，只是有一個堆疊(stack)作為記憶體使用，可辨識上下文無關文法(context-free grammar,
+                                    CFG)所生成的語言。</li>
+                                <li>確定下推自動機(deterministic pushdown automata,
+                                    DPDA)，類似PDA只是轉移函數變成確定轉移函數，即對於每一個讀入字元，都有一個可行的轉移狀態。然而DPDA與PDA不辨識同樣的語言。</li>
+                                <li>圖靈機(Turine machine,
+                                    TM)，類似DFA但是具有無限長度記憶體的機器，由於其轉移函數的形式定義，可以被圖靈機辨識以及可以被圖靈機接受(或說判定)的語言不完全相同，因此後面會探討可判定性(decidability)，而後面證明一個語言的不可判定性，則需仰賴一個在演算法設計與分析(ADA)也會學到的技巧--可歸約性(reducibility)--即把一個問題P歸約到另一個問題Q，藉此來說Q至少比P「困難」，以此來說明一個語言的不可判定性。
+                                </li>
+                                <li>非確定圖靈機(nondeterministic Turine machine, NTM)，轉移函數為非確定性的圖靈機。</li>
+                            </ol>
+                            此外還會介紹其他圖靈機在其記憶體(tape)上有所放寬或限制的圖靈機，像是多帶圖靈機(multitape Turine machine), 線性有界自動機(linear bounded
+                            automata)等等。學期的最後三分之一則會介紹一些關於複雜度理論的問題，舉例來說，我們會介紹電腦科學界最著名的未解問題，即TM可在多項式時間內判定的語言與NTM可在多項式時間內判定的語言是否一樣，目前學界普遍認為這是不同的。
                             <br>
                             心得：<br>
                             &emsp;&emsp;
