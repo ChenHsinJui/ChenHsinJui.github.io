@@ -35,7 +35,7 @@
     </header>
     <main class="main-content" id="content" role="main">
         <header>
-            <h1>2023 Fall預計要修的課</h1>
+            <h1>2023 Fall修課心得</h1>
         </header>
         <ul class="archive">
             <li>
@@ -73,7 +73,7 @@
                             &emsp;&emsp;這門課主要探討UNIX系統上程式的運作、kernel與程式之間的互動，以及作業系統在資源分配方面的角色。舉例來說，期初內容聚焦在UNIX系統上檔案讀寫(File
                             I/O)的機制，例如<code>write()</code>這個system call的執行流程，從file descriptor table、open file
                             table、i-node table一直到kernel buffer cache，最終檢查緩衝區快取(buffer cache)是否存放所需資料，若無則可能進入event
-                            queue等待磁碟讀寫(disk
+                            queue等待硬碟讀寫(disk
                             I/O)的機會。在這個例子中，我們會學到系統維護了什麼資料結構，kernel又會在什麼時候接管CPU等等。而後面的授課內容則會詳細的討論以下幾個章節：檔案讀寫(file
                             I/O)、檔案系統(files and
                             directories)、行程間通訊(inter-process communication)、行程控制(process control)、訊號(signal)以及執行緒(thread
@@ -82,7 +82,23 @@
                             &emsp;&emsp;該課程的評分標準為程式作業佔32％、手寫作業佔8％、期中考和期末考各佔30％。由於通常期中平均分較低，教授會在期末考中提高滿分為130分，最終成績不會進行調整，以學校的標準作為期末等第的評定基準。<br>
                             <br>
                             心得：<br>
-                            &emsp;&emsp;
+                            &emsp;&emsp;這門課的程式作業為我提供了豐富的學習機會，每個作業都深入涉及當前學習內容的核心概念，同時也要求製作簡單的報告。以下列舉各個作業涵蓋的主題：
+                            <ul>
+                                <li>第一次作業：學習了file lock、I/O multiplexing的重要性，並且認識到在socket
+                                    I/O中可能會出現封包切割的問題--儘管這個問題不該出現在SP這門課中--然而，我認為作為一個未來的程式設計師，尤其是系統相關的問題，這樣的問題更應該被程式設計師注意到。
+                                </li>
+                                <li>第二次作業：練習了<code>fork()</code>和<code>exec()</code>相關函式的實作，並學會了兩種常見的行程間溝通（IPC）技巧，如<code>pipe(),fifo</code>等，以解決race
+                                    condition相關的問題。</li>
+                                <li>第三次作業：探討了與訊號(signal)和nonlocal jump相關的<code>syscall</code>，特別需要注意避免deadlock相關的問題。
+                                </li>
+                                <li>第四次作業：練習了multi-threading(pthread, POSIX-thread)相關的user-level
+                                    thread操作，進一步豐富了多執行緒操作的經驗。</li>
+                            </ul>
+                            雖然在作業中相對較少涉及檔案系統相關的問題，但期中考中對檔案系統(file
+                            system)、檔案與目錄權限等方面的題目更為重要。整個學期的內容呈現了相互關聯性，特別是在深入探討<code>exec()、fork()</code>等<code>syscall</code>與set-UID
+                            bit的關係後，前後各章節的內容相互呼應。<br>
+                            &emsp;&emsp;課程中最大的收穫來自於作業，至少熟悉了各種<code>syscall</code>的使用。同時，學到了一項實用的技能，即在使用不熟悉的函式或<code>syscall</code>時先查閱相關的說明網頁(manual
+                            page)，這為解決問題提供了清晰且全面的指引。這樣的學習過程不僅培養了對系統程式的深入理解，也培養了查找資源並解決問題的獨立能力。
                         </font>
                     </blockquote>
                 </div>
